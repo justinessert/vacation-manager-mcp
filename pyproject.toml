@@ -1,11 +1,11 @@
 [project]
-name = "mcp"
+name = "vacation_mcp"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mcp",
+    "mcp[cli]",
     "pydantic",
 ]
 
@@ -14,3 +14,10 @@ dev = [
     "pre-commit",
     "ruff",
 ]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["vacation_mcp"]
