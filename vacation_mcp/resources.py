@@ -1,4 +1,4 @@
-from vacation_mcp.employees import _get_employee
+from vacation_mcp.employees import get_employee
 from vacation_mcp.server import server
 
 
@@ -28,5 +28,5 @@ def greet_employee(employee_id: str) -> str:
     Raises:
         InvalidEmployeeIDError: If the employee ID does not exist.
     """
-    employee = _get_employee(employee_id)
+    employee = get_employee(employee_id)
     return f"Hello, Employee {employee.id}!"

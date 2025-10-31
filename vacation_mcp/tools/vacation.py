@@ -1,6 +1,6 @@
 from typing import List
 
-from vacation_mcp.employees import _get_employee
+from vacation_mcp.employees import get_employee
 from vacation_mcp.exceptions import InsufficientVacationDaysError
 from vacation_mcp.server import server
 
@@ -20,7 +20,7 @@ def get_remaining_vacation_days(employee_id: str) -> int:
     Raises:
         InvalidEmployeeIDError: If the employee ID does not exist.
     """
-    employee = _get_employee(employee_id)
+    employee = get_employee(employee_id)
     return employee.remaning_vacation_days
 
 
@@ -41,7 +41,7 @@ def log_vacation_day(employee_id: str, dates: List[str]) -> str:
         InvalidEmployeeIDError: If the employee ID does not exist.
         InsufficientVacationDaysError: If the employee has no remaining vacation days.
     """
-    employee = _get_employee(employee_id)
+    employee = get_employee(employee_id)
     
     for date in dates:
         if employee.remaning_vacation_days <= 0:
@@ -65,5 +65,5 @@ def get_vacation_history(employee_id: str) -> List[str]:
     Raises:
         InvalidEmployeeIDError: If the employee ID does not exist.
     """
-    employee = _get_employee(employee_id)
+    employee = get_employee(employee_id)
     return employee.vacation_history

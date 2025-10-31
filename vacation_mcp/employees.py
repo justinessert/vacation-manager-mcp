@@ -34,7 +34,7 @@ employees: Dict[str, Employee] = {
     ),
 }
 
-def _get_employee(employee_id: str) -> Employee:
+def get_employee(employee_id: str) -> Employee:
     """
     Retrieve an employee object by their ID.
 
