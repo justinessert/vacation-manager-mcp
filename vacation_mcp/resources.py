@@ -1,9 +1,9 @@
 from vacation_mcp.employees import _get_employee
-from vacation_mcp.server import mcp_server
+from vacation_mcp.server import server
 
 
 # Health check resource
-@mcp_server.resource("health://")
+@server.resource("health://")
 def health_check() -> str:
     """
     Perform a health check for the MCP server.
@@ -14,7 +14,7 @@ def health_check() -> str:
     return "OK"
 
 # Employee greeting resource
-@mcp_server.resource("greet/{employee_id}")
+@server.resource("greet/{employee_id}")
 def greet_employee(employee_id: str) -> str:
     """
     Generate a greeting message for an employee.

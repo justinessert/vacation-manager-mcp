@@ -2,11 +2,11 @@ from typing import List
 
 from vacation_mcp.employees import _get_employee
 from vacation_mcp.exceptions import InsufficientVacationDaysError
-from vacation_mcp.server import mcp_server
+from vacation_mcp.server import server
 
 
 # Get remaining vacation days tool
-@mcp_server.tool()
+@server.tool()
 def get_remaining_vacation_days(employee_id: str) -> int:
     """
     Get the number of remaining vacation days for an employee.
@@ -25,7 +25,7 @@ def get_remaining_vacation_days(employee_id: str) -> int:
 
 
 # Log vacation day tool
-@mcp_server.tool()
+@server.tool()
 def log_vacation_day(employee_id: str, dates: List[str]) -> str:
     """
     Log vacation days for an employee. Ex: ["2023-04-01", "2023-04-02"]
@@ -51,7 +51,7 @@ def log_vacation_day(employee_id: str, dates: List[str]) -> str:
     return f"Logged {len(dates)} vacation days for employee {employee_id}."
 
 # Get vacation history tool
-@mcp_server.tool()
+@server.tool()
 def get_vacation_history(employee_id: str) -> List[str]:
     """
     Retrieve the vacation history for an employee.
